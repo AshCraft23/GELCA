@@ -13,6 +13,14 @@ import { LotesList } from './components/LotesList';
 import { AdministracionPanel } from './components/AdministracionPanel';
 import { LoginForm } from './components/LoginForm';
 
+import { createClient } from '@supabase/supabase-js';
+
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+
+export const supabase = createClient(supabaseUrl, supabaseKey);
+
+
 export type EstadoLote = 'Crianza' | 'Listo para Pescar' | 'En Venta' | 'Reposo' | 'Descarte';
 export type UserRole = 'Administrador' | 'Propietario' | 'Vendedor' | 'Pescador';
 
