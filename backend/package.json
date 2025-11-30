@@ -1,21 +1,16 @@
 {
   "name": "gelca-backend",
   "version": "1.0.0",
+
   "scripts": {
-    // 1. Comando que compila TypeScript a JavaScript
+    // Comando para ejecutar el compilador de TypeScript
     "build": "tsc", 
     
-    // 2. Este script se ejecuta AUTOMÁTICAMENTE antes de 'start'
+    // Ejecuta "npm run build" antes de "npm start"
     "prestart": "npm run build", 
     
-    // 3. Este comando ejecuta el archivo .js COMPILADO
+    // Este comando ahora buscará el archivo que fue creado por 'prestart'
     "start": "node dist/server.js" 
-  },
-  "dependencies": {
-    // ...
-  },
-  "devDependencies": {
-    "typescript": "^5.0.0", 
-    // ...
   }
 }
+
