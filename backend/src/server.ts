@@ -4,7 +4,7 @@ import cors from 'cors';
 import helmet from 'helmet';
 import morgan from 'morgan';
 
-import reportesRoutes from './routes/reportes.routes';
+//import reportesRoutes from './routes/reportes.routes';
 import cosechasRoutes from './routes/cosechas.routes';
 
 dotenv.config();
@@ -33,9 +33,8 @@ app.use((err: any, _req: Request, res: Response, _next: NextFunction) => {
   console.error('Unhandled error:', err);
   res.status(500).json({ error: 'Internal server error' });
 });
-
-const PORT = process.env.PORT ?? 3000;
-app.listen(PORT, () => {
-  // eslint-disable-next-line no-console
-  console.log(`Server listening on port ${PORT}`);
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, '0.0.0.0', () => { // '0.0.0.0' es vital para Docker/Railway
+    console.log(`Server running on port ${PORT}`);
 });
+
