@@ -4,7 +4,7 @@ import cors from 'cors';
 import helmet from 'helmet';
 import morgan from 'morgan';
 
-//import reportesRoutes from './routes/reportes.routes';
+import reportesRoutes from './routes/reportes.routes';
 import cosechasRoutes from './routes/cosechas.routes';
 
 dotenv.config();
