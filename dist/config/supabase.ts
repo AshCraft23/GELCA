@@ -1,13 +1,19 @@
 import { createClient } from '@supabase/supabase-js';
-import dotenv from 'dotenv';
+//import dotenv from 'dotenv';
 
-dotenv.config();
 
-const SUPABASE_URL = process.env.SUPABASE_URL ?? '';
-const SUPABASE_KEY = process.env.SUPABASE_KEY ?? '';
+const supabaseUrl = process.env.SUPABASE_URL || '';
 
-if (!SUPABASE_URL || !SUPABASE_KEY) {
-  console.warn('WARNING: SUPABASE_URL o SUPABASE_KEY no está(n) definido(s) en las variables de entorno.');
+//dotenv.config();
+const supabaseUrl = process.env.SUPABASE_URL || '';
+const supabaseAnonKey = process.env.SUPABASE_ANON_KEY || ''; 
+export const supabase = createClient(supabaseUrl, anonKey);
+
+if (!supabaseUrl || !supabaseAnonKey) {
+  // Ahora el warning te dirá si falta SUPABASE_ANON_KEY
+  console.warn("WARNING: SUPABASE_URL o SUPABASE_ANON_KEY no está(n) definido(s).");
 }
 
-export const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
+export const supabase = createClient(supabaseUrl, supabaseAnonKey);
+
+
