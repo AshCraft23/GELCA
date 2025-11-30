@@ -1,17 +1,41 @@
-import express from "express";
-import cors from "cors";
-import dotenv from "dotenv";
+import express, { Request, Response, NextFunction } from 'express';
+import dotenv from 'dotenv';
+import cors from 'cors';
+import helmet from 'helmet';
+import morgan from 'morgan';
+
+import reportesRoutes from './routes/reportes.routes';
+import cosechasRoutes from './routes/cosechas.routes';
 
 dotenv.config();
 
 const app = express();
+
+app.use(helmet());
 app.use(cors());
 app.use(express.json());
+app.use(morgan('dev'));
 
-app.get("/", (req, res) => {
-  res.send("Backend funcionando!");
+// Rutas API
+app.use('/api/reportes', reportesRoutes);
+app.use('/api/cosechas', cosechasRoutes);
+
+// Healthcheck
+app.get('/health', (_req: Request, res: Response) => res.json({ status: 'ok' }));
+
+// 404
+app.use((_req: Request, res: Response) => {
+  res.status(404).json({ error: 'Not found' });
 });
 
-app.listen(process.env.PORT || 3000, () => {
-  console.log("Servidor iniciado en puerto", process.env.PORT || 3000);
+// Error handler
+app.use((err: any, _req: Request, res: Response, _next: NextFunction) => {
+  console.error('Unhandled error:', err);
+  res.status(500).json({ error: 'Internal server error' });
+});
+
+const PORT = process.env.PORT ?? 3000;
+app.listen(PORT, () => {
+  // eslint-disable-next-line no-console
+  console.log(`Server listening on port ${PORT}`);
 });
