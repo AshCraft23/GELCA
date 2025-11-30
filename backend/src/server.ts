@@ -1,4 +1,4 @@
-import express, { Request, Response, NextFunction } from 'express';
+
 import dotenv from 'dotenv';
 import cors from 'cors';
 import helmet from 'helmet';
@@ -6,8 +6,12 @@ import morgan from 'morgan';
 
 //import reportesRoutes from './routes/reportes.routes';
 import cosechasRoutes from './routes/cosechas.routes';
+import './config/supabase'; // <--- Si importas esto primero
 
-dotenv.config();
+dotenv.config();           // <--- Y esto después
+
+
+import express, { Request, Response, NextFunction } from 'express';
 
 const app = express();
 
