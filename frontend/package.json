@@ -1,5 +1,6 @@
 
   {
+    
       "name": "Sistema de Gestión de Camarones",
       "version": "0.1.0",
       "private": true,
@@ -63,5 +64,9 @@
       "scripts": {
           "dev": "vite",
           "build": "vite build"
-      }
+          "start": "npm run preview", 
+          "preview": "vite preview" 
+      }      
+ 
+
   }
