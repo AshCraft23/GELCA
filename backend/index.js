@@ -1,4 +1,4 @@
-import express from "express";
+/*import express from "express";
 import cors from "cors";
 import cosechasRouter from "./routes/cosechas.js";
 import "dotenv/config";
@@ -18,3 +18,4 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log("Servidor ejecutándose en puerto", PORT);
 });
+
