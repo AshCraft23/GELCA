@@ -33,9 +33,8 @@ app.use((err: any, _req: Request, res: Response, _next: NextFunction) => {
   console.error('Unhandled error:', err);
   res.status(500).json({ error: 'Internal server error' });
 });
-const PORT = parseInt(process.env.PORT || '3000', 10);
-app.listen(PORT, '0.0.0.0', () => { // '0.0.0.0' es vital para Docker/Railway
+const PORT = parseInt(process.env.PORT || '3000', 10); 
+app.listen(PORT, '0.0.0.0', () => { 
     console.log(`Server running on port ${PORT}`);
-  
 });
 
