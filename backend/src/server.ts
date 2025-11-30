@@ -4,7 +4,7 @@ import cors from 'cors';
 import helmet from 'helmet';
 import morgan from 'morgan';
 
-import reportesRoutes from './routes/reportes.routes';
+//import reportesRoutes from './routes/reportes.routes';
 import cosechasRoutes from './routes/cosechas.routes';
 
 dotenv.config();
@@ -17,7 +17,7 @@ app.use(express.json());
 app.use(morgan('dev'));
 
 // Rutas API
-app.use('/api/reportes', reportesRoutes);
+//app.use('/api/reportes', reportesRoutes);
 app.use('/api/cosechas', cosechasRoutes);
 
 // Healthcheck
@@ -33,8 +33,9 @@ app.use((err: any, _req: Request, res: Response, _next: NextFunction) => {
   console.error('Unhandled error:', err);
   res.status(500).json({ error: 'Internal server error' });
 });
-const PORT = process.env.PORT || 3000;
+const PORT = parseInt(process.env.PORT || '3000', 10);
 app.listen(PORT, '0.0.0.0', () => { // '0.0.0.0' es vital para Docker/Railway
     console.log(`Server running on port ${PORT}`);
+  
 });
 
