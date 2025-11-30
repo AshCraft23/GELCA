@@ -1,5 +1,5 @@
 import { Router } from "express";
-import supabase from "../supabase.js";
+import supabase from "../supabase";
 
 const router = Router();
 
@@ -34,3 +34,4 @@ router.get("/", async (_, res) => {
 });
 
 export default router;
+
