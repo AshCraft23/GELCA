@@ -1,13 +1,25 @@
+// backend/src/config/supabase.ts
+
 import { createClient } from '@supabase/supabase-js';
-import dotenv from 'dotenv';
 
-dotenv.config();
+// Usamos la clave ANÓNIMA (pública) para el cliente estándar.
+const url = process.env.SUPABASE_URL || '';
+const anonKey = process.env.SUPABASE_ANON_KEY || ''; 
 
-const SUPABASE_URL = process.env.SUPABASE_URL ?? '';
-const SUPABASE_KEY = process.env.SUPABASE_KEY ?? '';
-
-if (!SUPABASE_URL || !SUPABASE_KEY) {
-  console.warn('WARNING: SUPABASE_URL o SUPABASE_KEY no está(n) definido(s) en las variables de entorno.');
+if (!url || !anonKey) {
+  // Ahora el warning es preciso.
+  console.warn("ADVERTENCIA: Las credenciales de Supabase no están configuradas en el entorno.");
 }
 
-export const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
+// Cliente estándar para uso general (con RLS)
+export const supabase = createClient(url, anonKey); 
+
+// Si usas el Service Role Key (para operaciones que necesitan privilegios)
+const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY || ''; 
+
+export const supabaseAdmin = createClient(url, serviceRoleKey, {
+    auth: {
+        autoRefreshToken: false,
+        persistSession: false,
+    },
+});
