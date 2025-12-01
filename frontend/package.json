@@ -5,8 +5,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "preview": "vite preview --port $PORT",
     "start": "serve -s dist -l $PORT --single"
-
   },
   "dependencies": {
     "@radix-ui/react-accordion": "^1.2.3",
@@ -51,12 +51,15 @@
     "recharts": "^2.15.2",
     "sonner": "^2.0.3",
     "tailwind-merge": "*",
-    "vaul": "^1.1.2"
+    "vaul": "^1.1.2",
+    "serve": "^14.2.5"
   },
   "devDependencies": {
     "@types/node": "^20.10.0",
     "@vitejs/plugin-react-swc": "^3.10.2",
-    "vite": "6.3.5",
-    "serve": "^14.2.5"
+    "vite": "6.3.5"
+  },
+  "engines": {
+    "node": "18.x"
   }
 }
