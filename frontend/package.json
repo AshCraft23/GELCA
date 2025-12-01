@@ -4,12 +4,11 @@
   "private": true,
 
 
-  "scripts": {
+"scripts": {
   "dev": "vite",
   "build": "vite build",
-  "start": "serve -s build -l $PORT"
-
-
+  "start": "npm run build && serve -s build -l $PORT"
+}
   },
 
   "dependencies": {
