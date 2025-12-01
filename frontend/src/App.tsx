@@ -187,19 +187,4 @@ export default function App() {
     );
   }
 
-  return (
-    <div className="min-h-screen">
-      <header className="flex justify-between p-4 border-b">
-        <h1>Bienvenido {currentUser.nombre}</h1>
-        <Button onClick={handleLogout}>
-          <LogOut className="mr-2 size-4" />
-          Cerrar sesión
-        </Button>
-      </header>
-
-      <main className="p-6">
-        <h2>App funcionando correctamente ✅</h2>
-      </main>
-    </div>
-  );
-}
+ 
