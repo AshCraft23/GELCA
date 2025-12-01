@@ -1,3 +1,8 @@
+export default function App() {
+  console.log("APP MONTADA EN PRODUCCIÓN ✅");
+return <h1>APP FUNCIONANDO</h1>
+
+
 import { useState } from 'react';
 import { Button } from './components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './components/ui/select';
