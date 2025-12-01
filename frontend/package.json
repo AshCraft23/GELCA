@@ -2,16 +2,11 @@
   "name": "sistema-gestion-camarones",
   "version": "0.1.0",
   "private": true,
-
-
-"scripts": {
-  "dev": "vite",
-  "build": "vite build",
-  "start": "npx serve -s dist -l $PORT"
-  "postinstall": "npm run build"
-}
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "start": "serve -s dist -l $PORT"
   },
-
   "dependencies": {
     "@radix-ui/react-accordion": "^1.2.3",
     "@radix-ui/react-alert-dialog": "^1.1.6",
@@ -39,7 +34,6 @@
     "@radix-ui/react-toggle": "^1.1.2",
     "@radix-ui/react-toggle-group": "^1.1.2",
     "@radix-ui/react-tooltip": "^1.1.8",
-
     "@supabase/supabase-js": "^2.43.4",
     "class-variance-authority": "^0.7.1",
     "clsx": "*",
@@ -58,10 +52,10 @@
     "tailwind-merge": "*",
     "vaul": "^1.1.2"
   },
-
   "devDependencies": {
     "@types/node": "^20.10.0",
     "@vitejs/plugin-react-swc": "^3.10.2",
-    "vite": "6.3.5"
+    "vite": "6.3.5",
+    "serve": "^14.2.5"
   }
 }
